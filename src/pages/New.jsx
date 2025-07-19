@@ -1,22 +1,36 @@
 import { useState, useEffect } from 'react';
-import styles from '../styles/Shop.module.css'; // reuse Shop styles
+import styles from '../styles/Shop.module.css';
+import cartStyles from '../styles/Cart.module.css';
 import Header from '../components/Header';
 import initialProducts from '../data/products';
+import { useCart } from '../context/CartContext';
 
 export default function New() {
   const [products, setProducts] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
   const [addedIds, setAddedIds] = useState([]);
+  const [selectedSizes, setSelectedSizes] = useState({});
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const { cartItems, addItem, removeItem, updateQuantity } = useCart();
 
   useEffect(() => {
     const newItems = initialProducts.filter(p => p.label === 'NEW');
     setProducts(newItems);
   }, []);
 
-  const addToCart = (e, id) => {
-    if (addedIds.includes(id)) return;
-    setCartCount(c => c + 1);
-    setAddedIds(prev => [...prev, id]);
+  const addToCart = (e, product) => {
+    const selectedSize = selectedSizes[product.id];
+    if (!selectedSize) {
+      alert('Please select a size first!');
+      return;
+    }
+
+    const uniqueKey = product.id + selectedSize;
+    if (addedIds.includes(uniqueKey)) return;
+
+    const productWithSize = { ...product, selectedSize };
+    addItem(productWithSize);
+    setAddedIds(prev => [...prev, uniqueKey]);
 
     const icon = document.createElement('div');
     icon.innerHTML = '🛒';
@@ -27,7 +41,7 @@ export default function New() {
     setTimeout(() => document.body.removeChild(icon), 1000);
 
     setTimeout(() => {
-      setAddedIds(prev => prev.filter(pid => pid !== id));
+      setAddedIds(prev => prev.filter(pid => pid !== uniqueKey));
     }, 2000);
   };
 
@@ -44,6 +58,7 @@ export default function New() {
           {products.map((p, i) => {
             const cartClass = `btn-cart-${(i % 4) + 1}`;
             const wishlistClass = `btn-wishlist-${(i % 4) + 1}`;
+            const selectedSize = selectedSizes[p.id];
 
             return (
               <div key={p.id} className={styles.productCard}>
@@ -54,15 +69,23 @@ export default function New() {
                   <div className={styles.productPrice}>${p.price}</div>
                   <div className={styles.productSizes}>
                     {p.sizes.map(sz => (
-                      <button key={sz} className={styles.sizeBtn}>{sz}</button>
+                      <button
+                        key={sz}
+                        className={`${styles.sizeBtn} ${selectedSize === sz ? styles.active : ''}`}
+                        onClick={() =>
+                          setSelectedSizes(prev => ({ ...prev, [p.id]: sz }))
+                        }
+                      >
+                        {sz}
+                      </button>
                     ))}
                   </div>
                   <div className={styles.productActions}>
                     <button
-                      className={`btn ${styles.addToCart} ${styles[cartClass]} ${addedIds.includes(p.id) ? styles.added : ''}`}
-                      onClick={(e) => addToCart(e, p.id)}
+                      className={`btn ${styles.addToCart} ${styles[cartClass]} ${addedIds.includes(p.id + selectedSize) ? styles.added : ''}`}
+                      onClick={(e) => addToCart(e, p)}
                     >
-                      {addedIds.includes(p.id) ? '✔️ Added' : 'Add to Cart 🛒'}
+                      {addedIds.includes(p.id + selectedSize) ? '✔️ Added' : 'Add to Cart 🛒'}
                     </button>
                     <button
                       className={`btn ${styles.wishlistBtn} ${styles[wishlistClass]}`}
@@ -80,12 +103,43 @@ export default function New() {
             );
           })}
         </section>
-
-        <div className={styles.cartInfo}>
-          <span>🛒 Cart:</span>
-          <span className={styles.cartCount}>{cartCount}</span>
-        </div>
       </section>
+
+      {/* ✅ Single Cart UI Below */}
+      <div className={cartStyles.cartToggle} onClick={() => setIsCartOpen(!isCartOpen)}>
+        🛒 ({cartItems.length})
+      </div>
+
+      {isCartOpen && (
+        <div className={cartStyles.cartPopup}>
+          <h3>🛍️ Your Cart</h3>
+          <ul>
+            {cartItems.map((item, i) => (
+              <li key={i} className={cartStyles.cartItem}>
+                <button
+                  className={cartStyles.removeBtn}
+                  onClick={() => removeItem(item.id, item.selectedSize)}
+                >
+                  ❌
+                </button>
+                <div>
+                  <span>{item.name}</span><br />
+                  {item.selectedSize && <small>Size: {item.selectedSize}</small>}<br />
+                  <b>${item.price}</b>
+                  <div className={cartStyles.qtyControls}>
+                    <button onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1), item.selectedSize)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => updateQuantity(item.id, item.quantity + 1, item.selectedSize)}>+</button>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {cartItems.length > 0 && (
+            <button className={cartStyles.checkoutBtn}>✅ Checkout Now</button>
+          )}
+        </div>
+      )}
     </main>
   );
 }
