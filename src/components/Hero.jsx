@@ -24,8 +24,12 @@ export default function Hero() {
       setClickedButtons((prev) => [...prev, index]);
     }
 
-    // ✅ Navigate to shop page with category as query param
+  // ✅ Navigate based on category
+     if (category === 'sale') {
+    navigate('/sale');
+  } else {
     navigate(`/shop?age=${category}`);
+  }
   };
 
   const buttons = [
