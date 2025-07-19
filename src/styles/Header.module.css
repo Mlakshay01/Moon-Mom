@@ -27,7 +27,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: bounce 2s infinite;
-  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.564), 5px 5px 5px blue;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.564), 0px 0px 5px blue;
   text-decoration: none; /* if wrapped in Link */
   gap: 10px;
 }
