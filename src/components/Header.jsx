@@ -9,8 +9,8 @@ export default function Header() {
       <nav className={`${styles.nav} container`}>
         <Link to="/">
           <div className={styles.logo}>
-            <img src="/moon_and_moms_logo.png" alt="Moon & Mom logo" />
-            <span>Moon & Mom</span>
+{/*             <img src="/moon_and_moms_logo.png" alt="Moon & Mom logo" /> */}
+            <span>Moon & Mom Baby Cloth Store</span>
           </div>
         </Link>
 
