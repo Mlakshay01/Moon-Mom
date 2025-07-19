@@ -1,5 +1,10 @@
 .accountPage {
+
   font-family: 'Comic Sans MS', sans-serif;
+
+font-family: "Comic Sans MS", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
+
+
   background: linear-gradient(135deg, #ffeaa7, #96ceb4, #ff6b6b);
   background-size: 300% 300%;
   animation: gradientShift 10s ease infinite;

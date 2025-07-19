@@ -3,14 +3,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Comic Sans MS', sans-serif;
+  font-family: "Comic Sans MS", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
+
 }
 
 /* Global Font and Background */
 body {
+
   font-family: 'Comic Sans MS', sans-serif;
 
   font-family: Arial, Helvetica, sans-serif;
+
+  font-family: "Comic Sans MS", "Segoe UI", "Arial Rounded MT Bold", sans-serif;
 
   background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
   background-size: 400% 400%;
