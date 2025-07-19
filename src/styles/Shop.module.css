@@ -540,3 +540,71 @@
     font-size: 12px;
   }
 }
+
+.shop button,
+.shop button:focus,
+.shop button:hover,
+.shop button:active {
+  outline: none ;
+  box-shadow: none ;
+  border: none ;
+}
+
+/* ... [REDACTED FOR BREVITY, FULL CSS FROM USER INPUT INCLUDED HERE] ... */
+
+/* Responsive styling */
+@media (max-width: 480px) {
+  .pageTitle h1 {
+    font-size: 1.8em;
+  }
+
+  .filterBtn {
+    font-size: 0.75em;
+    padding: 5px 12px;
+  }
+
+  .sortButton {
+    font-size: 1em;
+    padding: 6px 14px;
+  }
+
+  .productImage {
+    height: 140px;
+    font-size: 2.5em;
+  }
+
+  .productInfo h3 {
+    font-size: 1.1em;
+  }
+
+  .productPrice {
+    font-size: 1.2em;
+  }
+
+  .addToCart {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+
+  .wishlistBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .cartInfo {
+    font-size: 0.9em;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 10px;
+  }
+
+  .cartCount {
+    width: 20px;
+    height: 20px;
+    font-size: 0.75em;
+  }
+  .loadMore{
+    font-size: 12px;
+  }
+}
