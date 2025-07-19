@@ -7,7 +7,7 @@
 
 /* Global Font and Background */
 body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: sans-serif;
   background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
