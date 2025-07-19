@@ -1,0 +1,164 @@
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Fixed max 3 columns */
+  gap: 30px;
+  margin: 40px 0;
+}
+
+@media (max-width: 1024px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  /* background: rgb(227, 126, 200); */
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.562);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotate(2deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
+  left: 100%;
+}
+
+.bgTops {
+  background: linear-gradient(135deg, #ffd6e0, #ffe5ec);
+}
+.bgJeans {
+  background: linear-gradient(135deg, #d0e1ff, #aecbfa);
+}
+.bgDress {
+  background: linear-gradient(135deg, #ffe0f0, #fcd4e3);
+}
+.bgShoes {
+  background: linear-gradient(135deg, #e0fff4, #b2f7ef);
+}
+.bgJacket {
+  background: linear-gradient(135deg, #f0f0f0, #d4d4d4);
+}
+.bgBaby {
+  background: linear-gradient(135deg, #fff0e0, #ffe4b5);
+}
+
+
+/* 🔄 Replaces .icon (emoji) with image */
+.iconImage {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card img{
+  width: full;
+}
+
+.card:hover .iconImage {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnPrimary {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+}
+.btnSecondary {
+  background: linear-gradient(45deg, #4ecdc4, #6ee0d7);
+  color: white;
+}
+.btnAccent {
+  background: linear-gradient(45deg, #45b7d1, #74c9e3);
+  color: white;
+}
+.btnSuccess {
+  background: linear-gradient(45deg, #96ceb4, #b8ddc4);
+  color: white;
+}
+.btnWarning {
+  background: linear-gradient(45deg, #ffeaa7, #ffecb3);
+  color: #333;
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover,
+.btnAccent:hover,
+.btnSuccess:hover,
+.btnWarning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.2); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.sparkle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}

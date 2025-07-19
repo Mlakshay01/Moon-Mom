@@ -1,0 +1,42 @@
+.features {
+  background: url('/images/18.jpg') center / cover no-repeat;
+  padding: 50px 20px;
+  margin: 40px 0;
+  border-radius: 30px;
+  text-align: center;
+  min-height: 500px;
+
+}
+
+.heading {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #222d5c;
+  text-shadow: 2px 2px 5px white, 5px 5px 5px  pink;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.featureCard {
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #667eea66 0%, #764ba2 100%);
+  color: white;
+  transform: perspective(1000px) rotateX(0deg);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.featureCard:hover {
+  transform: perspective(1000px) rotateX(10deg) translateY(-5px);
+  outline: 2px solid cyan;
+}
+
+.icon {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}

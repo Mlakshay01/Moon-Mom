@@ -1,0 +1,165 @@
+.accountPage {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #ffeaa7, #96ceb4, #ff6b6b);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  min-height: 100vh;
+  padding-bottom: 40px;
+  color: black;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.accountContainer {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.accountHeader {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.accountHeader h1 {
+  font-size: 2.5em;
+  background: linear-gradient(45deg, #ff6b6b, #45b7d1);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sectionsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 1.4em;
+  color: #333;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card li {
+  margin: 8px 0;
+}
+
+.statusDelivered {
+  color: green;
+  font-weight: bold;
+}
+.statusShipped {
+  color: orange;
+  font-weight: bold;
+}
+.statusProcessing {
+  color: gray;
+  font-weight: bold;
+}
+
+.editBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #74c9e3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  background: #45b7d1;
+}
+
+.secondaryBtn {
+  margin: 5px 10px 5px 0;
+  padding: 10px 20px;
+  background: #ffeaa7;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background: #ffdb70;
+}
+
+.dangerBtn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dangerBtn:hover {
+  background: #d63031;
+}
+
+/* ✅ Responsive Enhancements */
+@media (max-width: 768px) {
+  .accountHeader h1 {
+    font-size: 2em;
+  }
+
+  .card h2 {
+    font-size: 1.2em;
+  }
+
+  .editBtn,
+  .secondaryBtn,
+  .dangerBtn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    margin: 8px 0;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accountHeader h1 {
+    font-size: 1.6em;
+  }
+
+  .accountHeader p {
+    font-size: 0.95em;
+  }
+
+  .sectionsWrapper {
+    gap: 20px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card li {
+    font-size: 0.95em;
+  }
+}

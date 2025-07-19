@@ -1,0 +1,149 @@
+.header {
+  background: url('/Banner.png') center/cover no-repeat;
+  padding: 20px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b6b, #4e63cd, #45b7d1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: bounce 2s infinite;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.564), 5px 5px 5px blue;
+  text-decoration: none; /* if wrapped in Link */
+  gap: 10px;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, beige, beige);
+}
+
+/* Bounce for logo only */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.navButtons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnPrimary,
+.btnSecondary,
+.btnAccent,
+.btnSuccess,
+.btnPink {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover,
+.btnAccent:hover,
+.btnSuccess:hover,
+.btnPink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btnPrimary {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+}
+.btnSecondary {
+  background: linear-gradient(45deg, #4ecdc4, #6ee0d7);
+  color: white;
+}
+.btnAccent {
+  background: linear-gradient(45deg, #45b7d1, #74c9e3);
+  color: white;
+}
+.btnSuccess {
+  background: linear-gradient(45deg, #96ceb4, #b8ddc4);
+  color: white;
+}
+.btnPink {
+  background: linear-gradient(45deg,#fd79a8,#e84393);
+  color: white;
+}
+
+
+.btn:focus {
+  outline: none;
+}
+.btn:active {
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.2); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ✅ Responsive fixes */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+  .logo {
+    justify-content: center;
+    font-size: 2em;
+    margin: 0;
+  }
+
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .navButtons {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .btnPrimary,
+  .btnSecondary,
+  .btnAccent,
+  .btnSuccess,
+  .btnPink {
+    font-size: 0.9em;
+    padding: 10px 18px;
+  }
+}

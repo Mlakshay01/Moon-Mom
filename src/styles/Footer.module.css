@@ -1,0 +1,71 @@
+.footer {
+  background: rgba(236, 14, 210, 0.9);
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.2); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Optional: extract shared buttons into global btn.css if reused everywhere */
+.btnPrimary {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+}
+.btnSecondary {
+  background: linear-gradient(45deg, #4ecdc4, #6ee0d7);
+  color: white;
+}
+.btnAccent {
+  background: linear-gradient(45deg, #45b7d1, #74c9e3);
+  color: white;
+}
+.btnSuccess {
+  background: linear-gradient(45deg, #96ceb4, #b8ddc4);
+  color: white;
+}
+.btnWarning {
+  background: linear-gradient(45deg, #ffeaa7, #ffecb3);
+  color: #333;
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover,
+.btnAccent:hover,
+.btnSuccess:hover,
+.btnWarning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
